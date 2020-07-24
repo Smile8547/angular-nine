@@ -10,6 +10,7 @@ import { TableDemoComponent } from './table-demo/table-demo.component';
 
 
 const appRoutes: Routes = [
+  { path: 'table', component: TableDemoComponent, pathMatch: 'full' },
 ];
 
 @NgModule({
