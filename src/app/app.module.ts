@@ -4,6 +4,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { PaginationComponent } from './pagination/pagination.component';
+import { TableComponent } from './table/table.component';
+import { TableDemoComponent } from './table-demo/table-demo.component';
 
 
 const appRoutes: Routes = [
@@ -11,7 +14,10 @@ const appRoutes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PaginationComponent,
+    TableComponent,
+    TableDemoComponent
   ],
   imports: [
     BrowserModule,
