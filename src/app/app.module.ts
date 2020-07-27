@@ -7,6 +7,10 @@ import { AppComponent } from './app.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import { TableComponent } from './table/table.component';
 import { TableDemoComponent } from './table-demo/table-demo.component';
+import { CheckboxDirDirective } from './checkbox-dir.directive';
+import { TableHeaderComponent } from './table-header/table-header.component';
+import { TableBodyComponent } from './table-body/table-body.component';
+import { TableFootComponent } from './table-foot/table-foot.component';
 
 
 const appRoutes: Routes = [
@@ -18,7 +22,11 @@ const appRoutes: Routes = [
     AppComponent,
     PaginationComponent,
     TableComponent,
-    TableDemoComponent
+    TableDemoComponent,
+    CheckboxDirDirective,
+    TableHeaderComponent,
+    TableBodyComponent,
+    TableFootComponent
   ],
   imports: [
     BrowserModule,

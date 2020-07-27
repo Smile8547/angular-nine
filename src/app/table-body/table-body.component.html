@@ -1,0 +1,6 @@
+<ng-template #contentTemplate>
+    <ng-content></ng-content>
+</ng-template>
+<ng-container *ngIf="true">
+    <ng-template [ngTemplateOutlet]="contentTemplate"></ng-template>
+</ng-container>

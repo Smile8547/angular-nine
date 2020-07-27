@@ -1,0 +1,9 @@
+table {
+    width: 100%;
+    color: #212529;
+    margin-bottom: 0rem;
+}
+
+.z-table-thead {
+    background-color: red;
+}

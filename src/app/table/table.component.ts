@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectorRef, TemplateRef } from '@angular/core';
+import { TableService } from '../table.service';
+import { takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-table',
@@ -7,9 +10,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TableComponent implements OnInit {
 
-  constructor() { }
+  @Input() tableList: any[];
+  @Input() tableHeader: any;
+  @Input() tableTemplate: boolean = false;
+  @Input() serial: boolean = true;
+  @Input() zScroll: { x?: string | null; y?: string | null } = { x: null, y: null };
+
+  public scrollX: string;
+  public scrollY: string;
+  public tabletheadTemplate: TemplateRef<any> | null = null;
+  public contentTemplate: TemplateRef<any> | null = null;
+  private destroy$ = new Subject<void>();
+  constructor(
+    private ztableService: TableService,
+    private cdr: ChangeDetectorRef, ) { }
 
   ngOnInit(): void {
+    const { theadTemplate$ } = this.ztableService;
+    theadTemplate$.pipe(takeUntil(this.destroy$)).subscribe(theadTemplate => {
+      console.log(theadTemplate);
+      this.tabletheadTemplate = theadTemplate;
+      this.cdr.markForCheck();
+    });
   }
 
 }
