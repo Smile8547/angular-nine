@@ -1,40 +1,41 @@
-<app-table #tableDemo [tableList]="tableList" [tableHeader]="tableheader" [zScroll]="{ x: '1200px', y: '240px' }">
+<app-table #tableDemo [tableList]="tableList" [tableHeader]="tableheader" [zScroll]="{x:'1200px',y: '240px' }">
     <thead>
         <tr>
-            <td colspan="5" style="text-align: center;">总标题
-            </td>
+            <th colspan="5" style="text-align: center;">总标题
+            </th>
         </tr>
         <tr>
-            <td width="20% " rowspan="2" style="text-align: center;vertical-align:middle;display:table-cell;"> 功能列 </td>
-            <td width="20% "> {{tableheader.name}}</td>
-            <td width="20% "> {{tableheader.sex}}</td>
-            <td width="20% "> {{tableheader.age}}</td>
-            <td width="20% "> 选择器</td>
+            <th width="10%" rowspan="2" style="text-align: center;vertical-align:middle;display:table-cell;"> 功能列 </th>
+            <th width="20%"> {{tableheader.name}}</th>
+            <th width="20%"> {{tableheader.sex}}</th>
+            <th width="20%"> {{tableheader.age}}</th>
+            <th width="10%" rowspan="2" style="text-align: center;vertical-align:middle;display:table-cell;"> 选择器</th>
         </tr>
         <tr>
-            <td width="20% "> 写点啥　 </td>
-            <td width="20% "> 　写点啥 </td>
-            <td width="20% "> 写点啥　 </td>
-            <td width="20% "> 写点啥　 </td>
+            <th> 写点啥　 </th>
+            <th> 写点啥 </th>
+            <th> 写点啥　 </th>
         </tr>
     </thead>
     <tbody *ngFor="let item of tableDemo.data; let i = index">
         <tr class="table-light">
-            <td style="width: 20%;" style="text-align: center;vertical-align:middle;display:table-cell;" rowspan="2">{{i+1}}&nbsp; <input type="checkbox" class="checkbox"></td>
-            <td style="width: 20%;">{{item.name}}</td>
-            <td style="width: 20%;">{{item.sex}}</td>
-            <td style="width: 20%;">{{item.age}}</td>
-            <td style="width: 20%;" style="text-align: center;vertical-align:middle;display:table-cell;" rowspan="2">
+            <td width="10%" style="text-align: center;vertical-align:middle;display:table-cell;" rowspan="2">{{i+1}}&nbsp;
+                <input type="checkbox" class="checkbox"></td>
+            <td width="20%"><input width="100px" type="text" value="{{item.name}}"> </td>
+            <td width="20%"><input type="text" value="{{item.sex}}"></td>
+            <td width="20%"><input type="text" value="{{item.age}}"></td>
+            <td width="10%" style="text-align: center;vertical-align:middle;display:table-cell;" rowspan="2">
                 <button appCheckboxDir checkNum="{{i}}" type="button" class="btn btn-danger btn-sm">
                     删除
-                </button>
+                </button> &nbsp;
                 <button type="button" class="btn btn-success btn-sm">添加</button>
             </td>
         </tr>
         <tr>
-            <td style="width: 20%;">{{item.name}}</td>
-            <td style="width: 20%;">{{item.sex}}</td>
-            <td style="width: 20%;">{{item.age}}</td>
+            <td><input type="text" value="{{item.name}}"></td>
+            <td><input type="text" value="{{item.sex}}"></td>
+            <td><input type="text" value="{{item.age}}"></td>
         </tr>
     </tbody>
+    <tfoot>这里是footer</tfoot>
 </app-table>

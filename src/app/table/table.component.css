@@ -1,13 +1,19 @@
 table {
-    width: 100%;
+    min-width: 1500px;
     color: #212529;
     margin-bottom: 0rem;
-    border: 1px #212529;
+}
+
+.nz-table-hide-scrollbar {
+    scrollbar-color: #fafafa #fafafa
+}
+
+.nz-table-hide-scrollbar::-webkit-scrollbar {
+    background-color: #fafafa
 }
 
 .z-table-thead {
-    background-color: white;
-    border: 1px red;
+    background-color: #fafafa;
 }
 
 .z-table-body {

@@ -11,6 +11,7 @@ import { CheckboxDirDirective } from './checkbox-dir.directive';
 import { TableHeaderComponent } from './table-header/table-header.component';
 import { TableBodyComponent } from './table-body/table-body.component';
 import { TableFootComponent } from './table-foot/table-foot.component';
+import { TablePaginationComponent } from './table-pagination/table-pagination.component';
 
 
 const appRoutes: Routes = [
@@ -26,7 +27,8 @@ const appRoutes: Routes = [
     CheckboxDirDirective,
     TableHeaderComponent,
     TableBodyComponent,
-    TableFootComponent
+    TableFootComponent,
+    TablePaginationComponent
   ],
   imports: [
     BrowserModule,

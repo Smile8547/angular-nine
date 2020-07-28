@@ -1,0 +1,6 @@
+<ul class="pagination">
+    <li class="page-item"><a class="page-link" (click)="goPage(pageNumber-1)">Previous</a></li>
+    <li *ngFor="let item of pageLists" class="page-item" [ngClass]="{ 'active' :item ==pageNumber}">
+        <a class="page-link" (click)="goPage(item)">{{item}}</a></li>
+    <li class="page-item"><a class="page-link" (click)="goPage(pageNumber+1)">Next</a></li>
+</ul>
