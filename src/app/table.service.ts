@@ -13,4 +13,8 @@ export class TableService {
   setTheadTemplate(template: TemplateRef<any>): void {
     this.theadTemplate$.next(template);
   }
+
+  setBodyTemplate(template: TemplateRef<any>): void {
+    this.tbodyTemplate$.next(template);
+  }
 }

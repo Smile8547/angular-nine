@@ -2,8 +2,14 @@ table {
     width: 100%;
     color: #212529;
     margin-bottom: 0rem;
+    border: 1px #212529;
 }
 
 .z-table-thead {
-    background-color: red;
+    background-color: white;
+    border: 1px red;
+}
+
+.z-table-body {
+    background-color: green;
 }

@@ -7,14 +7,13 @@ import { TableService } from '../table.service';
   styleUrls: ['./table-header.component.css']
 })
 export class TableHeaderComponent implements OnInit {
-  @ViewChild('contentTemplate', { static: true }) templateRef!: TemplateRef<any>;
+  @ViewChild('headeTemplate', { static: true }) templateRef!: TemplateRef<any>;
   constructor(
     @Optional() private ztableService: TableService,
   ) { }
 
   ngOnInit(): void {
     if (this.ztableService) {
-      console.log(this.templateRef);
       this.ztableService.setTheadTemplate(this.templateRef);
     }
   }

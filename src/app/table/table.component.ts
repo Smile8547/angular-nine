@@ -19,6 +19,7 @@ export class TableComponent implements OnInit {
   public scrollX: string;
   public scrollY: string;
   public tabletheadTemplate: TemplateRef<any> | null = null;
+  public tablebodyTemplate: TemplateRef<any> | null = null;
   public contentTemplate: TemplateRef<any> | null = null;
   private destroy$ = new Subject<void>();
   constructor(
@@ -26,10 +27,16 @@ export class TableComponent implements OnInit {
     private cdr: ChangeDetectorRef, ) { }
 
   ngOnInit(): void {
-    const { theadTemplate$ } = this.ztableService;
+    const { theadTemplate$, tbodyTemplate$ } = this.ztableService;
     theadTemplate$.pipe(takeUntil(this.destroy$)).subscribe(theadTemplate => {
       console.log(theadTemplate);
       this.tabletheadTemplate = theadTemplate;
+      this.cdr.markForCheck();
+    });
+
+    tbodyTemplate$.pipe(takeUntil(this.destroy$)).subscribe(bodyTemplate => {
+      console.log(bodyTemplate);
+      this.tablebodyTemplate = bodyTemplate;
       this.cdr.markForCheck();
     });
   }

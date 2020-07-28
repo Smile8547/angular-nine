@@ -1,6 +1,6 @@
-<ng-template #contentTemplate>
+<ng-template #bodyTemplate>
     <ng-content></ng-content>
 </ng-template>
 <ng-container *ngIf="true">
-    <ng-template [ngTemplateOutlet]="contentTemplate"></ng-template>
+    <ng-template [ngTemplateOutlet]="bodyTemplate"></ng-template>
 </ng-container>
