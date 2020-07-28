@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ChangeDetectorRef, TemplateRef } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectorRef, TemplateRef, Output } from '@angular/core';
 import { TableService } from '../table.service';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
@@ -15,6 +15,7 @@ export class TableComponent implements OnInit {
   @Input() tableTemplate: boolean = false;
   @Input() serial: boolean = true;
   @Input() zScroll: { x?: string | null; y?: string | null } = { x: null, y: null };
+  @Output() data: any[];
 
   public scrollX: string;
   public scrollY: string;
@@ -39,6 +40,9 @@ export class TableComponent implements OnInit {
       this.tablebodyTemplate = bodyTemplate;
       this.cdr.markForCheck();
     });
+
+    this.data = this.tableList.slice(0, 5);
+    console.log(this.data);
   }
 
 }

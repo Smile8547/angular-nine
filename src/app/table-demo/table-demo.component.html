@@ -1,5 +1,5 @@
-<app-table [tableList]="tableList" [tableHeader]="tableheader" [zScroll]="{ x: '1200px', y: '240px' }">
-    <thead class="thead-light">
+<app-table #tableDemo [tableList]="tableList" [tableHeader]="tableheader" [zScroll]="{ x: '1200px', y: '240px' }">
+    <thead>
         <tr>
             <td colspan="5" style="text-align: center;">总标题
             </td>
@@ -18,19 +18,23 @@
             <td width="20% "> 写点啥　 </td>
         </tr>
     </thead>
-    <tbody>
-        <tr class="table-light" *ngFor="let item of tableList; let i = index">
-            <td style="width: 5%;">{{i+1}}</td>
-            <td style="width: 15%;"><input type="checkbox" class="checkbox"></td>
+    <tbody *ngFor="let item of tableDemo.data; let i = index">
+        <tr class="table-light">
+            <td style="width: 20%;" style="text-align: center;vertical-align:middle;display:table-cell;" rowspan="2">{{i+1}}&nbsp; <input type="checkbox" class="checkbox"></td>
             <td style="width: 20%;">{{item.name}}</td>
             <td style="width: 20%;">{{item.sex}}</td>
             <td style="width: 20%;">{{item.age}}</td>
-            <td style="width: 20%;">
+            <td style="width: 20%;" style="text-align: center;vertical-align:middle;display:table-cell;" rowspan="2">
                 <button appCheckboxDir checkNum="{{i}}" type="button" class="btn btn-danger btn-sm">
                     删除
                 </button>
                 <button type="button" class="btn btn-success btn-sm">添加</button>
             </td>
+        </tr>
+        <tr>
+            <td style="width: 20%;">{{item.name}}</td>
+            <td style="width: 20%;">{{item.sex}}</td>
+            <td style="width: 20%;">{{item.age}}</td>
         </tr>
     </tbody>
 </app-table>
