@@ -21,9 +21,9 @@
         <tr class="table-light">
             <td width="10%" style="text-align: center;vertical-align:middle;display:table-cell;" rowspan="2">{{i+1}}&nbsp;
                 <input type="checkbox" class="checkbox"></td>
-            <td width="20%"><input width="100px" type="text" value="{{item.name}}"> </td>
-            <td width="20%"><input type="text" value="{{item.sex}}"></td>
-            <td width="20%"><input type="text" value="{{item.age}}"></td>
+            <td width="20%"><input width="100px" type="text" [(ngModel)]="item.name"> </td>
+            <td width="20%"><input type="text" [(ngModel)]="item.sex"></td>
+            <td width="20%"><input type="text" [(ngModel)]="item.age"></td>
             <td width="10%" style="text-align: center;vertical-align:middle;display:table-cell;" rowspan="2">
                 <button appCheckboxDir checkNum="{{i}}" type="button" class="btn btn-danger btn-sm">
                     删除
