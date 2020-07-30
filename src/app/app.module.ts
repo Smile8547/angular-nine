@@ -13,6 +13,7 @@ import { TableHeaderComponent } from './table-header/table-header.component';
 import { TableBodyComponent } from './table-body/table-body.component';
 import { TableFootComponent } from './table-foot/table-foot.component';
 import { TablePaginationComponent } from './table-pagination/table-pagination.component';
+import { TdFixedDirective } from './td-fixed.directive';
 
 
 const appRoutes: Routes = [
@@ -29,7 +30,8 @@ const appRoutes: Routes = [
     TableHeaderComponent,
     TableBodyComponent,
     TableFootComponent,
-    TablePaginationComponent
+    TablePaginationComponent,
+    TdFixedDirective
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, ChangeDetectorRef, TemplateRef, Output, ViewChild, ElementRef, NgZone } from '@angular/core';
 import { TableService } from '../table.service';
+import { Platform } from '@angular/cdk/platform';
 import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 import { delay, filter, startWith, takeUntil } from 'rxjs/operators';
 import { fromEvent, merge, Subject } from 'rxjs';
@@ -35,6 +36,7 @@ export class TableComponent implements OnInit {
     private ztableService: TableService,
     private cdr: ChangeDetectorRef,
     private ngZone: NgZone,
+    private platform: Platform,
   ) { }
 
   ngOnInit(): void {
@@ -67,17 +69,15 @@ export class TableComponent implements OnInit {
   }
 
   ngAfterViewInit(): void {
-    // const scrollEvent$ = fromEvent<MouseEvent>(this.tableBodyElement.nativeElement, 'scroll').pipe(takeUntil(this.destroy$));
-    // const scrollX$ = scrollEvent$.pipe(filter(() => !!this.scrollX));
-    // const scrollY$ = scrollEvent$.pipe(filter(() => !!this.scrollY));
-
-    let tableCount = this.tableBodyElement.nativeElement;
-    tableCount.addEventListener('scroll', () => {
-      let scrollLeft = tableCount.scrollLeft;
-      //this.tableHeaderElement.nativeElement.style.transform = 'translateX(' + -scrollLeft + 'px)';
-      // tableCount.querySelector('thead').style.transform = 'translateY(' + scrollTop + 'px)';
-      this.tableHeaderElement.nativeElement.scrollLeft = scrollLeft;
-    })
+    if (this.platform.isBrowser) {
+      this.ngZone.runOutsideAngular(() => {
+        // TODO 如何定义的X轴偏移？
+        const scrollEvent$ = fromEvent<MouseEvent>(this.tableBodyElement.nativeElement, 'scroll').pipe(takeUntil(this.destroy$));
+        const scrollX$ = scrollEvent$.pipe(filter(() => !!this.scrollX));
+        const scrollY$ = scrollEvent$.pipe(filter(() => !!this.scrollY));
+        scrollY$.subscribe(() => (this.tableHeaderElement.nativeElement.scrollLeft = this.tableBodyElement.nativeElement.scrollLeft));
+      });
+    }
   }
 
   goPage(even): void {
