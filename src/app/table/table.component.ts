@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, ChangeDetectorRef, TemplateRef, Output, ViewChild, ElementRef, NgZone } from '@angular/core';
 import { TableService } from '../table.service';
+import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 import { delay, filter, startWith, takeUntil } from 'rxjs/operators';
 import { fromEvent, merge, Subject } from 'rxjs';
 
